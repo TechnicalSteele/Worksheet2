@@ -50,6 +50,9 @@ bool Game::init()
 		std::cout << "penguin ded :( \n";
 	}
 
+	character->setTexture(*animals);
+	character->setPosition(200, 200);
+
 
   return true;
 }
@@ -59,9 +62,16 @@ void Game::update(float dt)
 
 }
 
+void Game::newAnimal()
+{
+	passport_accepted = false;
+	passport_rejected = false;
+}
+
 void Game::render()
 {
 	window.draw(*background);
+	window.draw(*character);
 }
 
 void Game::mouseClicked(sf::Event event)
