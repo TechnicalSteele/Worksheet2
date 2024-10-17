@@ -28,6 +28,7 @@ class Game
 
   bool passport_accepted;
   bool passport_rejected;
+  bool should_accept;
 
 };
 

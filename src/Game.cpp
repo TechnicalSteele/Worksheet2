@@ -22,6 +22,7 @@ Game::~Game()
 
 bool Game::init()
 {
+	//newAnimal();
 	character = new sf::Sprite;
 	passport = new sf::Sprite;
 	background = new sf::Sprite;
@@ -50,8 +51,7 @@ bool Game::init()
 		std::cout << "penguin ded :( \n";
 	}
 
-	character->setTexture(*animals);
-	character->setPosition(200, 200);
+	
 
 
   return true;
@@ -59,13 +59,33 @@ bool Game::init()
 
 void Game::update(float dt)
 {
-
+	
 }
 
 void Game::newAnimal()
 {
 	passport_accepted = false;
 	passport_rejected = false;
+
+	int animal_index = rand() % 3;
+	int passport_index = rand() % 3;
+	if (animal_index == passport_index)
+	{
+		should_accept = true;
+	}
+	else
+	{
+		should_accept = false;
+	}
+
+	character->setTexture(animals[animal_index], true);
+	character->setScale(1.8, 1.8);
+	character->setPosition(window.getSize().x / 12, window.getSize().y / 12);
+
+	passport->setTexture(passports[passport_index]);
+	passport->setScale(0.6, 0.6);
+	passport->setPosition(window.getSize().x / 2, window.getSize().y / 3);
+
 }
 
 void Game::render()

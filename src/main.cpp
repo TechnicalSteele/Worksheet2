@@ -24,6 +24,8 @@ int main()
   // A Clock starts counting as soon as it's created
   sf::Clock clock;
 
+  
+
   // Game loop: run the program as long as the window is open
   while (window.isOpen())
   {
